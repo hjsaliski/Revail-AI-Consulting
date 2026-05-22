@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>revail — AI consulting for small business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0d0d0d;
+  --ink2: #3c3c3c;
+  --ink3: #888;
+  --paper: #f7f4ef;
+  --paper2: #efeae2;
+  --accent: #1a1a2e;
+  --gold: #b8943f;
+  --gold-lt: #dfc98a;
+  --line: rgba(13,13,13,0.1);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* noise overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 900;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 22px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(247,244,239,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── LOGO ── */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  text-decoration: none;
+  user-select: none;
+}
+
+.logo-text {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.logo-ai {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 0.01em;
+}
+
+/* small decorative dot after logo */
+.logo::after {
+  content: '·';
+  font-size: 20px;
+  color: var(--gold);
+  margin-left: 4px;
+  line-height: 1;
+  align-self: center;
+}
+
+.nav-cta {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 52px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* large decorative background "revail" watermark */
+.hero-watermark {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  font-family: var(--serif);
+  font-size: clamp(120px, 22vw, 280px);
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(184,148,63,0.12);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.hero-inner {
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ink2);
+  max-width: 520px;
+  margin-bottom: 48px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+.btn-ghost {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink2);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--ink); }
+.btn-ghost::after { content: '→'; transition: transform 0.2s; }
+.btn-ghost:hover::after { transform: translateX(4px); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 52px;
+}
+
+/* ── WHAT I DO ── */
+.what {
+  padding: 100px 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.what-left h2 { margin-bottom: 20px; }
+.what-left p { font-size: 16px; font-weight: 300; color: var(--ink2); max-width: 400px; }
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.step:last-child { border-bottom: none; padding-bottom: 0; }
+
+.step-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 36px;
+  color: var(--gold-lt);
+  line-height: 1;
+  min-width: 36px;
+  margin-top: -4px;
+}
+
+.step-body h3 {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.step-body p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink3);
+  line-height: 1.65;
+}
+
+/* ── PROOF STRIP ── */
+.proof {
+  background: var(--paper2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 60px 52px;
+  text-align: center;
+}
+
+.proof-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.proof blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 3vw, 30px);
+  color: var(--ink);
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.proof cite {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink3);
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── BOOK A CALL ── */
+.book {
+  padding: 100px 52px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.book-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.book-header h2 { margin-bottom: 14px; }
+.book-header p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink2);
+}
+
+.calendly-wrap {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  min-height: 700px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 52px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+}
+.footer-logo .logo-text { font-size: 16px; }
+.footer-logo .logo-ai { font-size: 16px; }
+
+footer p {
+  font-size: 12px;
+  color: var(--ink3);
+  font-weight: 300;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow { animation: fadeUp 0.6s ease both; }
+h1            { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 18px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .divider { margin: 0 24px; }
+  .what { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
+  .proof { padding: 56px 24px; }
+  .book { padding: 72px 24px; }
+  footer { padding: 32px 24px; }
+  .nav-cta { padding: 8px 16px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-text">rev</span><span class="logo-ai">ai</span><span class="logo-text">l</span>
+  </a>
+  <a href="#book" class="nav-cta">Free audit</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-watermark">revail</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AI consulting · Small business</div>
+    <h1>Your business,<br/><em>smarter.</em></h1>
+    <p class="hero-sub">
+      We audit your workflows, find where you're losing time and money, and show you exactly which AI tools can fix it — in plain English, no tech background required.
+    </p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Book a free 30-min audit</a>
+      <a href="#what" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT I DO -->
+<section class="what" id="what">
+  <div class="what-left">
+    <div class="section-label">How it works</div>
+    <h2>A free audit,<br/>zero pressure.</h2>
+    <p>In 30 minutes I'll map your current processes, spot the friction points, and give you a clear action plan — whether you hire me or not.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Book a 30-minute call</h3>
+        <p>We talk through how your business runs day-to-day — scheduling, admin, customer follow-up, invoicing, whatever takes your time.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Get a custom AI roadmap</h3>
+        <p>Within 48 hours I'll send you a one-page breakdown of 2–3 tools or automations that could save you real hours each week.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Implement at your pace</h3>
+        <p>Take the recommendations and run with them yourself, or work with me to get everything set up and your team trained.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROOF / POSITIONING QUOTE -->
+<section class="proof">
+  <div class="proof-inner">
+    <blockquote>"Most small businesses are sitting on hours of wasted time — not because they lack the tools, but because no one has shown them which ones to use."</blockquote>
+    <cite>revail · AI consulting for small business</cite>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="book-header">
+    <div class="section-label" style="justify-content:center;">Schedule</div>
+    <h2>Book your free audit</h2>
+    <p>30 minutes. No sales pitch. Just honest advice on where AI can help your business.</p>
+  </div>
+  <div class="calendly-wrap">
+    <div class="calendly-inline-widget"
+         data-url="https://calendly.com/hjsaliski/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=b8943f"
+         style="min-width:320px;height:700px;">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <span class="logo-text">rev</span><span class="logo-ai">ai</span><span class="logo-text">l</span>
+  </a>
+  <p>© 2026 revail · AI consulting for small business · Schertz, TX</p>
+</footer>
+
+</body>
+</html>
