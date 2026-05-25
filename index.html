@@ -96,6 +96,26 @@ nav {
   align-self: center;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 2px;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: var(--ink); }
+
 .nav-cta {
   font-family: var(--sans);
   font-size: 13px;
@@ -345,18 +365,18 @@ h2 {
 
 /* ── BOOK A CALL ── */
 .book {
-  padding: 100px 52px;
-  max-width: 1000px;
+  padding: 60px 52px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .book-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
-.book-header h2 { margin-bottom: 14px; }
+.book-header h2 { margin-bottom: 10px; }
 .book-header p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 300;
   color: var(--ink2);
 }
@@ -366,7 +386,116 @@ h2 {
   border-radius: 4px;
   overflow: hidden;
   background: #fff;
-  min-height: 700px;
+  min-height: 860px;
+}
+
+/* ── ICON STRIP ── */
+.icon-strip {
+  background: var(--paper2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 80px 52px;
+}
+
+.icon-strip-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.icon-strip-label::before,
+.icon-strip-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold-lt);
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 28px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 28px 16px 24px;
+  border-top: 2px solid var(--gold-lt);
+  background: rgba(255,255,255,0.6);
+  border-radius: 50px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.icon-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(13,13,13,0.07);
+}
+
+.icon-item.more {
+  background: var(--gold);
+  border-top: 2px solid var(--gold-lt);
+}
+
+.icon-item.more .icon-title {
+  color: #fff;
+}
+
+.icon-item.more .icon-desc {
+  color: rgba(255,255,255,0.75);
+}
+
+.icon-item.more .icon-sketch svg {
+  stroke: #fff;
+}
+
+.icon-sketch {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-sketch svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-title {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.icon-desc {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--ink3);
+  line-height: 1.65;
+  max-width: 150px;
 }
 
 /* ── FOOTER ── */
@@ -405,12 +534,89 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
 .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
 
+/* ── ABOUT ── */
+.about {
+  padding: 100px 52px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-left {
+  position: sticky;
+  top: 120px;
+}
+
+.about-left h2 {
+  margin-bottom: 20px;
+}
+
+.about-left .about-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  margin-top: 24px;
+  display: block;
+}
+
+.about-left .about-title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin-top: 4px;
+  display: block;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.about-right p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+.about-right p strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.about-callout {
+  background: var(--paper2);
+  border-left: 3px solid var(--gold);
+  padding: 24px 28px;
+  border-radius: 2px;
+}
+
+.about-callout p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px !important;
+  color: var(--ink) !important;
+  line-height: 1.55 !important;
+  margin: 0;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 18px 24px; }
   .hero { padding: 100px 24px 60px; }
   .divider { margin: 0 24px; }
   .what { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
+  .about { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
+  .about-left { position: static; }
+  .icon-strip { padding: 56px 24px; }
+  .icon-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 16px; }
   .proof { padding: 56px 24px; }
   .book { padding: 72px 24px; }
   footer { padding: 32px 24px; }
@@ -422,10 +628,13 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">
+  <a href="index.html" class="logo">
     <span class="logo-text">rev</span><span class="logo-ai">ai</span><span class="logo-text">l</span>
   </a>
-  <a href="#book" class="nav-cta">Free audit</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="#book" class="nav-cta">Free audit</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -435,7 +644,7 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
     <div class="hero-eyebrow">AI consulting · Small business</div>
     <h1>Your business,<br/><em>smarter.</em></h1>
     <p class="hero-sub">
-      We audit your workflows, find where you're losing time and money, and show you exactly which AI tools can fix it — in plain English, no tech background required.
+      We audit your workflows, find where you're losing time and money, and show you exactly which AI tools can fix it. No tech background required.
     </p>
     <div class="hero-actions">
       <a href="#book" class="btn-primary">Book a free 30-min audit</a>
@@ -451,14 +660,14 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
   <div class="what-left">
     <div class="section-label">How it works</div>
     <h2>A free audit,<br/>zero pressure.</h2>
-    <p>In 30 minutes I'll map your current processes, spot the friction points, and give you a clear action plan — whether you hire me or not.</p>
+    <p>In 30 minutes I'll map your current processes, spot the friction points, and give you a clear action plan. Whether you hire me or not.</p>
   </div>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-body">
         <h3>Book a 30-minute call</h3>
-        <p>We talk through how your business runs day-to-day — scheduling, admin, customer follow-up, invoicing, whatever takes your time.</p>
+        <p>We talk through how your business runs day-to-day. Scheduling, admin, customer follow-up, invoicing, whatever takes your time.</p>
       </div>
     </div>
     <div class="step">
@@ -480,13 +689,73 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 
 <div class="divider"></div>
 
+<!-- ICON STRIP -->
+<div class="icon-strip">
+  <div class="icon-strip-label">What we help with</div>
+  <div class="icon-grid">
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="38" rx="3"/><line x1="8" y1="24" x2="56" y2="24"/><line x1="20" y1="8" x2="20" y2="18"/><line x1="44" y1="8" x2="44" y2="18"/><line x1="18" y1="36" x2="28" y2="36"/><line x1="18" y1="44" x2="36" y2="44"/></svg></div>
+      <div class="icon-title">Scheduling</div>
+      <div class="icon-desc">Automate bookings, reminders, and calendar management</div>
+    </div>
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="10" y="10" width="44" height="44" rx="3"/><line x1="18" y1="24" x2="46" y2="24"/><line x1="18" y1="32" x2="46" y2="32"/><line x1="18" y1="40" x2="34" y2="40"/><path d="M36 46 L42 52 L54 40"/></svg></div>
+      <div class="icon-title">Invoicing</div>
+      <div class="icon-desc">Generate, send, and track invoices automatically</div>
+    </div>
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="12"/><path d="M10 54 C10 40 54 40 54 54"/><path d="M42 18 C46 20 48 26 44 30"/><path d="M44 10 C52 12 56 22 50 28"/></svg></div>
+      <div class="icon-title">Customer Follow-up</div>
+      <div class="icon-desc">Automated outreach so no lead ever slips through</div>
+    </div>
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="4"/><polyline points="14,42 24,28 34,36 44,18 54,22"/></svg></div>
+      <div class="icon-title">Financial Reporting</div>
+      <div class="icon-desc">Real-time dashboards replacing manual spreadsheet work</div>
+    </div>
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="8" y="16" width="48" height="34" rx="4"/><polyline points="8,20 32,38 56,20"/></svg></div>
+      <div class="icon-title">Email Automation</div>
+      <div class="icon-desc">Smart sequences that nurture customers without manual effort</div>
+    </div>
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><path d="M10 54 L10 28 L22 28 L22 54"/><path d="M26 54 L26 18 L38 18 L38 54"/><path d="M42 54 L42 34 L54 34 L54 54"/><line x1="6" y1="54" x2="58" y2="54"/></svg></div>
+      <div class="icon-title">Sales Pipeline</div>
+      <div class="icon-desc">Track leads and close deals with automated sales tools</div>
+    </div>
+
+    <div class="icon-item">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="12" y="8" width="40" height="30" rx="3"/><line x1="12" y1="20" x2="52" y2="20"/><circle cx="22" cy="14" r="2"/><circle cx="30" cy="14" r="2"/><path d="M20 44 L32 56 L44 44"/><line x1="32" y1="38" x2="32" y2="56"/></svg></div>
+      <div class="icon-title">Marketing</div>
+      <div class="icon-desc">Campaigns, posts, and email sequences on autopilot</div>
+    </div>
+
+    <div class="icon-item more">
+      <div class="icon-sketch"><svg viewBox="0 0 64 64"><circle cx="16" cy="32" r="4"/><circle cx="32" cy="32" r="4"/><circle cx="48" cy="32" r="4"/></svg></div>
+      <div class="icon-title">Many More</div>
+      <div class="icon-desc">Payroll, inventory, onboarding, contracts, analytics and more</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <!-- PROOF / POSITIONING QUOTE -->
 <section class="proof">
   <div class="proof-inner">
-    <blockquote>"Most small businesses are sitting on hours of wasted time — not because they lack the tools, but because no one has shown them which ones to use."</blockquote>
+    <blockquote>"Most small businesses are sitting on hours of wasted time. Not because they lack the tools, but because no one has shown them which ones to use."</blockquote>
     <cite>revail · AI consulting for small business</cite>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- BOOK -->
 <section class="book" id="book">
@@ -498,7 +767,7 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
   <div class="calendly-wrap">
     <div class="calendly-inline-widget"
          data-url="https://calendly.com/hjsaliski/30min?hide_event_type_details=0&hide_gdpr_banner=1&primary_color=b8943f"
-         style="min-width:320px;height:700px;">
+         style="min-width:320px;height:860px;">
     </div>
   </div>
 </section>
@@ -508,7 +777,7 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
   <a href="#" class="footer-logo">
     <span class="logo-text">rev</span><span class="logo-ai">ai</span><span class="logo-text">l</span>
   </a>
-  <p>© 2026 revail · AI consulting for small business · Schertz, TX</p>
+  <p>© 2026 revail · AI consulting for small business · Austin, TX</p>
 </footer>
 
 </body>
