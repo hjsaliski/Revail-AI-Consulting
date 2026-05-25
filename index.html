@@ -390,113 +390,135 @@ h2 {
   min-height: 860px;
 }
 
-/* ── ICON STRIP ── */
-.icon-strip {
+/* ── SERVICES ── */
+.services {
   background: var(--paper2);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 80px 52px;
 }
 
-.icon-strip-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
+.services-header {
   text-align: center;
   margin-bottom: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.icon-strip-label::before,
-.icon-strip-label::after {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 1px;
-  background: var(--gold-lt);
 }
 
-.icon-grid {
+.services-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.services-header h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.services-header p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink3);
+}
+
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px 28px;
-  max-width: 960px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.icon-item {
+.service-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  text-align: center;
-  padding: 28px 16px 24px;
-  border-top: 2px solid var(--gold-lt);
-  background: rgba(255,255,255,0.6);
-  border-radius: 50px;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
-.icon-item:hover {
-  border-color: var(--gold);
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold-lt);
+  transition: background 0.2s;
+}
+
+.service-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(13,13,13,0.07);
+  box-shadow: 0 12px 36px rgba(13,13,13,0.08);
+  border-color: var(--gold-lt);
 }
 
-.icon-item.more {
+.service-card:hover::before {
   background: var(--gold);
-  border-top: 2px solid var(--gold-lt);
 }
 
-.icon-item.more .icon-title {
-  color: #fff;
+.service-number {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 44px;
+  color: var(--gold-lt);
+  line-height: 1;
 }
 
-.icon-item.more .icon-desc {
-  color: rgba(255,255,255,0.75);
-}
-
-.icon-item.more .icon-sketch svg {
-  stroke: #fff;
-}
-
-.icon-sketch {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-sketch svg {
-  width: 28px;
-  height: 28px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.icon-title {
+.service-title {
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--ink);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
-.icon-desc {
+.service-subtitle {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
   font-family: var(--sans);
-  font-size: 12.5px;
+}
+
+.service-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.service-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.service-example {
+  font-size: 12px;
   font-weight: 300;
   color: var(--ink3);
-  line-height: 1.65;
-  max-width: 150px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.service-example::before {
+  content: '·';
+  color: var(--gold);
+  font-size: 16px;
+  line-height: 1.2;
+  flex-shrink: 0;
 }
 
 /* ── FOOTER ── */
@@ -616,8 +638,8 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
   .what { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
   .about { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
   .about-left { position: static; }
-  .icon-strip { padding: 56px 24px; }
-  .icon-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 16px; }
+  .services { padding: 56px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
   .proof { padding: 56px 24px; }
   .book { padding: 72px 24px; }
   footer { padding: 32px 24px; }
@@ -690,57 +712,52 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 
 <div class="divider"></div>
 
-<!-- ICON STRIP -->
-<div class="icon-strip">
-  <div class="icon-strip-label">What we help with</div>
-  <div class="icon-grid">
+<!-- SERVICES -->
+<div class="services">
+  <div class="services-header">
+    <div class="section-label" style="justify-content:center;">What revail offers</div>
+    <h2>Every business needs something <em>different.</em></h2>
+    <p>Choose the level of support that fits where you are right now.</p>
+  </div>
+  <div class="services-grid">
 
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="38" rx="3"/><line x1="8" y1="24" x2="56" y2="24"/><line x1="20" y1="8" x2="20" y2="18"/><line x1="44" y1="8" x2="44" y2="18"/><line x1="18" y1="36" x2="28" y2="36"/><line x1="18" y1="44" x2="36" y2="44"/></svg></div>
-      <div class="icon-title">Scheduling</div>
-      <div class="icon-desc">Automate bookings, reminders, and calendar management</div>
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <div class="service-subtitle">Guidance</div>
+      <div class="service-title">Learn and apply</div>
+      <p class="service-desc">For business owners who want to understand what AI can do and start using it themselves. No technical setup required. Just clear, practical direction on the tools that fit your business.</p>
+      <div class="service-examples">
+        <div class="service-example">How to use ChatGPT to save hours on admin</div>
+        <div class="service-example">Which tools fit your current workflow</div>
+        <div class="service-example">Prompting techniques that actually work</div>
+        <div class="service-example">A clear action plan you can run with yourself</div>
+      </div>
     </div>
 
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="10" y="10" width="44" height="44" rx="3"/><line x1="18" y1="24" x2="46" y2="24"/><line x1="18" y1="32" x2="46" y2="32"/><line x1="18" y1="40" x2="34" y2="40"/><path d="M36 46 L42 52 L54 40"/></svg></div>
-      <div class="icon-title">Invoicing</div>
-      <div class="icon-desc">Generate, send, and track invoices automatically</div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <div class="service-subtitle">Implementation</div>
+      <div class="service-title">Set it up together</div>
+      <p class="service-desc">For businesses ready to put the right tools in place. The problem gets identified, the right solution gets selected, and everything gets connected to what you already use. Done with you, not just for you.</p>
+      <div class="service-examples">
+        <div class="service-example">Tool selection and setup</div>
+        <div class="service-example">Integration with existing systems</div>
+        <div class="service-example">Team training and handoff</div>
+        <div class="service-example">Ongoing support as needed</div>
+      </div>
     </div>
 
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="12"/><path d="M10 54 C10 40 54 40 54 54"/><path d="M42 18 C46 20 48 26 44 30"/><path d="M44 10 C52 12 56 22 50 28"/></svg></div>
-      <div class="icon-title">Customer Follow-up</div>
-      <div class="icon-desc">Automated outreach so no lead ever slips through</div>
-    </div>
-
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="4"/><polyline points="14,42 24,28 34,36 44,18 54,22"/></svg></div>
-      <div class="icon-title">Financial Reporting</div>
-      <div class="icon-desc">Real-time dashboards replacing manual spreadsheet work</div>
-    </div>
-
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="8" y="16" width="48" height="34" rx="4"/><polyline points="8,20 32,38 56,20"/></svg></div>
-      <div class="icon-title">Email Automation</div>
-      <div class="icon-desc">Smart sequences that nurture customers without manual effort</div>
-    </div>
-
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><path d="M10 54 L10 28 L22 28 L22 54"/><path d="M26 54 L26 18 L38 18 L38 54"/><path d="M42 54 L42 34 L54 34 L54 54"/><line x1="6" y1="54" x2="58" y2="54"/></svg></div>
-      <div class="icon-title">Sales Pipeline</div>
-      <div class="icon-desc">Track leads and close deals with automated sales tools</div>
-    </div>
-
-    <div class="icon-item">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><rect x="12" y="8" width="40" height="30" rx="3"/><line x1="12" y1="20" x2="52" y2="20"/><circle cx="22" cy="14" r="2"/><circle cx="30" cy="14" r="2"/><path d="M20 44 L32 56 L44 44"/><line x1="32" y1="38" x2="32" y2="56"/></svg></div>
-      <div class="icon-title">Marketing</div>
-      <div class="icon-desc">Campaigns, posts, and email sequences on autopilot</div>
-    </div>
-
-    <div class="icon-item more">
-      <div class="icon-sketch"><svg viewBox="0 0 64 64"><circle cx="16" cy="32" r="4"/><circle cx="32" cy="32" r="4"/><circle cx="48" cy="32" r="4"/></svg></div>
-      <div class="icon-title">Many More</div>
-      <div class="icon-desc">Payroll, inventory, onboarding, contracts, analytics and more</div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <div class="service-subtitle">Custom Build</div>
+      <div class="service-title">Built for your business</div>
+      <p class="service-desc">For businesses that need something built specifically for them. Custom applications, automated workflows, and system integrations designed around your exact process. Not a generic solution — yours.</p>
+      <div class="service-examples">
+        <div class="service-example">Custom AI-powered applications</div>
+        <div class="service-example">Automated workflow design and build</div>
+        <div class="service-example">System and data integrations</div>
+        <div class="service-example">Ongoing iterations and improvements</div>
+      </div>
     </div>
 
   </div>
