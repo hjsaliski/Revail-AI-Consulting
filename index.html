@@ -36,7 +36,6 @@ body {
   overflow-x: hidden;
 }
 
-/* noise overlay */
 body::after {
   content: '';
   position: fixed;
@@ -47,7 +46,6 @@ body::after {
   opacity: 0.5;
 }
 
-/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -62,7 +60,6 @@ nav {
   border-bottom: 1px solid var(--line);
 }
 
-/* ── LOGO ── */
 .logo {
   display: flex;
   align-items: baseline;
@@ -70,7 +67,6 @@ nav {
   text-decoration: none;
   user-select: none;
 }
-
 .logo-text {
   font-family: var(--sans);
   font-size: 22px;
@@ -78,7 +74,6 @@ nav {
   letter-spacing: 0.04em;
   color: var(--ink);
 }
-
 .logo-ai {
   font-family: var(--serif);
   font-style: italic;
@@ -86,8 +81,6 @@ nav {
   color: var(--gold);
   letter-spacing: 0.01em;
 }
-
-/* small decorative dot after logo */
 .logo::after {
   content: '·';
   font-size: 20px;
@@ -97,12 +90,7 @@ nav {
   align-self: center;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
+.nav-links { display: flex; align-items: center; gap: 12px; }
 .nav-link {
   font-family: var(--sans);
   font-size: 13px;
@@ -116,7 +104,6 @@ nav {
   transition: color 0.2s;
 }
 .nav-link:hover { color: var(--ink); }
-
 .nav-cta {
   font-family: var(--sans);
   font-size: 13px;
@@ -132,7 +119,6 @@ nav {
 }
 .nav-cta:hover { background: var(--ink); color: var(--paper); }
 
-/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -141,8 +127,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-
-/* large decorative background "revail" watermark */
 .hero-watermark {
   position: absolute;
   bottom: -60px;
@@ -157,13 +141,7 @@ nav {
   white-space: nowrap;
   line-height: 1;
 }
-
-.hero-inner {
-  max-width: 720px;
-  position: relative;
-  z-index: 1;
-}
-
+.hero-inner { max-width: 720px; position: relative; z-index: 1; }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -182,7 +160,6 @@ nav {
   height: 1px;
   background: var(--gold);
 }
-
 h1 {
   font-family: var(--serif);
   font-size: clamp(42px, 6vw, 76px);
@@ -191,12 +168,7 @@ h1 {
   margin-bottom: 28px;
   font-weight: 400;
 }
-
-h1 em {
-  font-style: italic;
-  color: var(--gold);
-}
-
+h1 em { font-style: italic; color: var(--gold); }
 .hero-sub {
   font-size: 18px;
   font-weight: 300;
@@ -205,14 +177,7 @@ h1 em {
   margin-bottom: 48px;
   line-height: 1.75;
 }
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
+.hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .btn-primary {
   font-family: var(--sans);
   font-size: 14px;
@@ -228,7 +193,6 @@ h1 em {
   display: inline-block;
 }
 .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-
 .btn-ghost {
   font-family: var(--sans);
   font-size: 14px;
@@ -244,14 +208,8 @@ h1 em {
 .btn-ghost::after { content: '→'; transition: transform 0.2s; }
 .btn-ghost:hover::after { transform: translateX(4px); }
 
-/* ── DIVIDER ── */
-.divider {
-  height: 1px;
-  background: var(--line);
-  margin: 0 52px;
-}
+.divider { height: 1px; background: var(--line); margin: 0 52px; }
 
-/* ── WHAT I DO ── */
 .what {
   padding: 100px 52px;
   display: grid;
@@ -261,7 +219,6 @@ h1 em {
   max-width: 1100px;
   margin: 0 auto;
 }
-
 .section-label {
   font-size: 11px;
   font-weight: 500;
@@ -280,7 +237,6 @@ h1 em {
   height: 1px;
   background: var(--gold);
 }
-
 h2 {
   font-family: var(--serif);
   font-size: clamp(32px, 4vw, 48px);
@@ -288,16 +244,9 @@ h2 {
   line-height: 1.15;
   color: var(--ink);
 }
-
 .what-left h2 { margin-bottom: 20px; }
 .what-left p { font-size: 16px; font-weight: 300; color: var(--ink2); max-width: 400px; }
-
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
+.steps { display: flex; flex-direction: column; gap: 32px; }
 .step {
   display: flex;
   gap: 20px;
@@ -306,7 +255,6 @@ h2 {
   border-bottom: 1px solid var(--line);
 }
 .step:last-child { border-bottom: none; padding-bottom: 0; }
-
 .step-num {
   font-family: var(--serif);
   font-style: italic;
@@ -316,7 +264,6 @@ h2 {
   min-width: 36px;
   margin-top: -4px;
 }
-
 .step-body h3 {
   font-family: var(--sans);
   font-size: 15px;
@@ -325,14 +272,8 @@ h2 {
   margin-bottom: 6px;
   letter-spacing: 0.01em;
 }
-.step-body p {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--ink3);
-  line-height: 1.65;
-}
+.step-body p { font-size: 14px; font-weight: 300; color: var(--ink3); line-height: 1.65; }
 
-/* ── PROOF STRIP ── */
 .proof {
   background: var(--paper2);
   border-top: 1px solid var(--line);
@@ -340,12 +281,7 @@ h2 {
   padding: 60px 52px;
   text-align: center;
 }
-
-.proof-inner {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
+.proof-inner { max-width: 760px; margin: 0 auto; }
 .proof blockquote {
   font-family: var(--serif);
   font-style: italic;
@@ -354,7 +290,6 @@ h2 {
   line-height: 1.45;
   margin-bottom: 20px;
 }
-
 .proof cite {
   font-size: 13px;
   font-weight: 400;
@@ -364,24 +299,10 @@ h2 {
   text-transform: uppercase;
 }
 
-/* ── BOOK A CALL ── */
-.book {
-  padding: 60px 52px;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.book-header {
-  text-align: center;
-  margin-bottom: 32px;
-}
+.book { padding: 60px 52px; max-width: 720px; margin: 0 auto; }
+.book-header { text-align: center; margin-bottom: 32px; }
 .book-header h2 { margin-bottom: 10px; }
-.book-header p {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--ink2);
-}
-
+.book-header p { font-size: 15px; font-weight: 300; color: var(--ink2); }
 .calendly-wrap {
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -397,12 +318,7 @@ h2 {
   border-bottom: 1px solid var(--line);
   padding: 80px 52px;
 }
-
-.services-header {
-  text-align: center;
-  margin-bottom: 52px;
-}
-
+.services-header { text-align: center; margin-bottom: 52px; }
 .services-header h2 {
   font-family: var(--serif);
   font-size: clamp(28px, 4vw, 42px);
@@ -410,17 +326,8 @@ h2 {
   color: var(--ink);
   margin-bottom: 12px;
 }
-
-.services-header h2 em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.services-header p {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--ink3);
-}
+.services-header h2 em { font-style: italic; color: var(--gold); }
+.services-header p { font-size: 15px; font-weight: 300; color: var(--ink3); }
 
 .services-grid {
   display: grid;
@@ -437,12 +344,10 @@ h2 {
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   position: relative;
   overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
-
 .service-card::before {
   content: '';
   position: absolute;
@@ -451,16 +356,12 @@ h2 {
   background: var(--gold-lt);
   transition: background 0.2s;
 }
-
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 36px rgba(13,13,13,0.08);
   border-color: var(--gold-lt);
 }
-
-.service-card:hover::before {
-  background: var(--gold);
-}
+.service-card:hover::before { background: var(--gold); }
 
 .service-number {
   font-family: var(--serif);
@@ -468,16 +369,8 @@ h2 {
   font-size: 44px;
   color: var(--gold-lt);
   line-height: 1;
+  margin-bottom: 10px;
 }
-
-.service-title {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: 0.01em;
-}
-
 .service-subtitle {
   font-size: 11px;
   font-weight: 500;
@@ -485,24 +378,34 @@ h2 {
   text-transform: uppercase;
   color: var(--gold);
   font-family: var(--sans);
+  margin-bottom: 8px;
 }
-
+.service-title {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
 .service-desc {
   font-size: 14px;
   font-weight: 300;
   color: var(--ink2);
   line-height: 1.8;
+  margin-bottom: 24px;
   flex: 1;
 }
-
+.service-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 0 20px 0;
+}
 .service-examples {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
+  gap: 8px;
 }
-
 .service-example {
   font-size: 12px;
   font-weight: 300;
@@ -512,7 +415,6 @@ h2 {
   gap: 8px;
   line-height: 1.5;
 }
-
 .service-example::before {
   content: '·';
   color: var(--gold);
@@ -521,7 +423,6 @@ h2 {
   flex-shrink: 0;
 }
 
-/* ── FOOTER ── */
 footer {
   padding: 40px 52px;
   border-top: 1px solid var(--line);
@@ -531,115 +432,28 @@ footer {
   flex-wrap: wrap;
   gap: 16px;
 }
-
-.footer-logo {
-  display: flex;
-  align-items: baseline;
-  text-decoration: none;
-}
+.footer-logo { display: flex; align-items: baseline; text-decoration: none; }
 .footer-logo .logo-text { font-size: 16px; }
 .footer-logo .logo-ai { font-size: 16px; }
+footer p { font-size: 12px; color: var(--ink3); font-weight: 300; }
 
-footer p {
-  font-size: 12px;
-  color: var(--ink3);
-  font-weight: 300;
-}
-
-/* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 .hero-eyebrow { animation: fadeUp 0.6s ease both; }
 h1            { animation: fadeUp 0.6s 0.1s ease both; }
 .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
 .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
 
-/* ── ABOUT ── */
-.about {
-  padding: 100px 52px;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-left {
-  position: sticky;
-  top: 120px;
-}
-
-.about-left h2 {
-  margin-bottom: 20px;
-}
-
-.about-left .about-name {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
-  color: var(--gold);
-  margin-top: 24px;
-  display: block;
-}
-
-.about-left .about-title {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink3);
-  margin-top: 4px;
-  display: block;
-}
-
-.about-right {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-
-.about-right p {
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--ink2);
-  line-height: 1.8;
-}
-
-.about-right p strong {
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.about-callout {
-  background: var(--paper2);
-  border-left: 3px solid var(--gold);
-  padding: 24px 28px;
-  border-radius: 2px;
-}
-
-.about-callout p {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px !important;
-  color: var(--ink) !important;
-  line-height: 1.55 !important;
-  margin: 0;
-}
-
-/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 18px 24px; }
   .hero { padding: 100px 24px 60px; }
   .divider { margin: 0 24px; }
   .what { grid-template-columns: 1fr; gap: 48px; padding: 72px 24px; }
-  .about { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
-  .about-left { position: static; }
   .services { padding: 56px 24px; }
   .services-grid { grid-template-columns: 1fr; }
+  .service-desc { min-height: unset; }
   .proof { padding: 56px 24px; }
   .book { padding: 72px 24px; }
   footer { padding: 32px 24px; }
@@ -723,13 +537,14 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
     <div class="service-card">
       <div class="service-number">01</div>
       <div class="service-subtitle">Guidance</div>
-      <div class="service-title">Point me in the right direction</div>
-      <p class="service-desc">For business owners who want to understand what tools exist and how to start using them. We walk you through what is available, what fits your business, and how to get started. No technical background required.</p>
+      <div class="service-title">Guide my business</div>
+      <p class="service-desc">For business owners who want to understand what tools exist and where to start. We walk through your workflow, match the right tools to your needs, and give you a clear plan to move forward.</p>
+      <div class="service-divider"></div>
       <div class="service-examples">
-        <div class="service-example">What tools exist for your specific problem</div>
-        <div class="service-example">How to use ChatGPT to cut your admin time</div>
-        <div class="service-example">Which platforms work with what you already use</div>
-        <div class="service-example">A clear starting point you can act on immediately</div>
+        <div class="service-example">Tools matched to your situation</div>
+        <div class="service-example">How to use ChatGPT effectively</div>
+        <div class="service-example">Which platforms fit your workflow</div>
+        <div class="service-example">A clear plan to get started</div>
       </div>
     </div>
 
@@ -737,12 +552,13 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
       <div class="service-number">02</div>
       <div class="service-subtitle">Implementation</div>
       <div class="service-title">Set it up for me</div>
-      <p class="service-desc">For businesses ready to put the right tools in place. We identify the problem, find the right solution, set everything up, and connect it to what you already use. Done with you, not just for you.</p>
+      <p class="service-desc">For businesses ready to put the right tools in place. We identify the problem, find the right solution, and build it into what you already use so everything works together from day one.</p>
+      <div class="service-divider"></div>
       <div class="service-examples">
-        <div class="service-example">Tool selection built around your workflow</div>
-        <div class="service-example">Full setup and integration with existing systems</div>
-        <div class="service-example">Team training so everyone knows how to use it</div>
-        <div class="service-example">Ongoing support as your needs evolve</div>
+        <div class="service-example">Full setup with existing systems</div>
+        <div class="service-example">Clear timeline from start to finish</div>
+        <div class="service-example">Team training and handoff</div>
+        <div class="service-example">You approve before we launch</div>
       </div>
     </div>
 
@@ -750,12 +566,13 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
       <div class="service-number">03</div>
       <div class="service-subtitle">Custom Build</div>
       <div class="service-title">Build something new</div>
-      <p class="service-desc">For businesses that need something built specifically for them. Custom applications, automated workflows, and integrations designed around your exact process. Built for how your business actually works.</p>
+      <p class="service-desc">For businesses that need something built from the ground up. We design and build custom applications, automated workflows, and integrations built around exactly how your operation runs every day.</p>
+      <div class="service-divider"></div>
       <div class="service-examples">
-        <div class="service-example">Custom applications built for your operation</div>
-        <div class="service-example">Automated workflows that eliminate manual tasks</div>
-        <div class="service-example">System and data integrations across your tools</div>
-        <div class="service-example">Ongoing iterations as your business grows</div>
+        <div class="service-example">Custom apps for your operation</div>
+        <div class="service-example">AI agents to cut manual tasks</div>
+        <div class="service-example">System integrations across tools</div>
+        <div class="service-example">Ongoing updates as you grow</div>
       </div>
     </div>
 
