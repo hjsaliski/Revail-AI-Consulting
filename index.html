@@ -217,15 +217,6 @@ h1 em { font-style: italic; color: var(--gold); }
 
 .divider { height: 1px; background: var(--line); margin: 0 52px; }
 
-.what {
-  padding: 100px 52px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
-}
 .section-label {
   font-size: 11px;
   font-weight: 500;
@@ -251,35 +242,6 @@ h2 {
   line-height: 1.15;
   color: var(--ink);
 }
-.what-left h2 { margin-bottom: 20px; }
-.what-left p { font-size: 16px; font-weight: 300; color: var(--ink2); max-width: 400px; }
-.steps { display: flex; flex-direction: column; gap: 32px; }
-.step {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--line);
-}
-.step:last-child { border-bottom: none; padding-bottom: 0; }
-.step-num {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 36px;
-  color: var(--gold-lt);
-  line-height: 1;
-  min-width: 36px;
-  margin-top: -4px;
-}
-.step-body h3 {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 6px;
-  letter-spacing: 0.01em;
-}
-.step-body p { font-size: 14px; font-weight: 300; color: var(--ink3); line-height: 1.65; }
 
 .proof {
   background: var(--paper2);
@@ -601,9 +563,8 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 /* ── PROCESS TIERS (dark, sequential, for What We Do) ── */
 .process-tiers {
   background: var(--ink);
-  padding: 90px 52px;
+  padding: 90px 52px 150px;
   position: relative;
-  overflow: hidden;
 }
 .process-tiers::before {
   content: '';
@@ -614,13 +575,17 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 }
 .process-tiers-inner {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
+  grid-template-columns: 0.85fr 1.9fr;
+  gap: 64px;
   align-items: start;
-  max-width: 1100px;
+  max-width: 1320px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+.process-tiers-left {
+  position: sticky;
+  top: 120px;
 }
 .process-tiers-left .section-label { color: var(--gold-lt); }
 .process-tiers-left .section-label::before { background: var(--gold-lt); }
@@ -702,6 +667,79 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 @media (max-width: 768px) {
   .process-tiers { padding: 56px 24px; }
   .process-tiers-inner { grid-template-columns: 1fr; gap: 40px; }
+  .process-tiers-left { position: static; }
+}
+
+/* ── NESTED TIER CARDS (step 3 of merged process section) ── */
+.tier-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+.tier-mini-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 20px 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.tier-mini-card:hover {
+  border-color: var(--gold-lt);
+  background: rgba(255,255,255,0.06);
+}
+.tier-mini-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--gold-lt);
+  opacity: 0.6;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.tier-mini-subtitle {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 6px;
+}
+.tier-mini-title {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.tier-mini-desc {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.tier-mini-examples { display: flex; flex-direction: column; gap: 4px; }
+.tier-mini-example {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.5;
+}
+.tier-mini-example::before {
+  content: '·';
+  color: var(--gold-lt);
+  font-size: 14px;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .tier-mini-grid { grid-template-columns: 1fr; }
 }
 
 /* ── STICKY CTA ── */
@@ -825,88 +863,76 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 
 <div class="divider"></div>
 
-<!-- WHAT I DO -->
-<section class="what" id="what">
-  <div class="what-left">
-    <div class="section-label">How it works</div>
-    <h2>Simple process,<br/>real results.</h2>
-    <p>In 30 minutes we understand your business. Within 48 hours you have a clear plan. From there you choose how far you want to take it.</p>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Tell us what is slowing you down</h3>
-        <p>We talk through your business. The admin, the repetitive tasks, the things that eat your day. No tech knowledge needed. Just an honest conversation about what is not working.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>We find the right solution</h3>
-        <p>We check what your current platform already offers, what's sitting unused, and what's genuinely missing, then recommend accordingly.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>You choose how far to take it</h3>
-        <p>Take the recommendation and run with it yourself, or let us set it up, integrate it, and hand it to you working. We go as deep as you need.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SERVICES -->
-<section class="process-tiers">
+<!-- PROCESS + ENGAGEMENT (merged) -->
+<section class="process-tiers" id="what">
   <div class="process-tiers-inner">
     <div class="process-tiers-left">
-      <div class="section-label">What we do</div>
-      <h2>We meet you where you <em>are.</em></h2>
-      <p>Three depths of engagement. Each one builds on the last.</p>
+      <div class="section-label">How it works</div>
+      <h2>From conversation<br/>to <em>built system.</em></h2>
+      <p>In 30 minutes we understand your business. Within 48 hours you have a clear plan. From there, you choose how far to take it.</p>
     </div>
     <div class="process-tier-list">
 
       <div class="process-tier">
-        <div class="process-tier-num">01</div>
+        <div class="process-tier-num">1</div>
         <div class="process-tier-body">
-          <div class="process-tier-subtitle">Guidance</div>
-          <div class="process-tier-title">Show me what's possible</div>
-          <p class="process-tier-desc">For business owners who want to understand what tools exist and where to start. We walk through your workflow, match the right tools to your needs, and give you a clear plan to move forward.</p>
-          <div class="process-tier-examples">
-            <div class="process-tier-example">Tools matched to your situation</div>
-            <div class="process-tier-example">Where your current setup is falling short</div>
-            <div class="process-tier-example">A clear plan to get started</div>
-          </div>
+          <div class="process-tier-title">Tell us what is slowing you down</div>
+          <p class="process-tier-desc">We talk through your business. The admin, the repetitive tasks, the things that eat your day. No tech knowledge needed, just an honest conversation about what is not working.</p>
         </div>
       </div>
 
       <div class="process-tier">
-        <div class="process-tier-num">02</div>
+        <div class="process-tier-num">2</div>
         <div class="process-tier-body">
-          <div class="process-tier-subtitle">Implementation</div>
-          <div class="process-tier-title">Set it up for me</div>
-          <p class="process-tier-desc">For businesses ready to put the right tools in place. We identify the problem, find the right solution, and build it into what you already use so everything works together from day one.</p>
-          <div class="process-tier-examples">
-            <div class="process-tier-example">Full setup with existing systems</div>
-            <div class="process-tier-example">Team training and handoff</div>
-            <div class="process-tier-example">You approve before we launch</div>
-          </div>
+          <div class="process-tier-title">We find the right solution</div>
+          <p class="process-tier-desc">We check what your current platform already offers, what's sitting unused, and what's genuinely missing, then recommend accordingly.</p>
         </div>
       </div>
 
       <div class="process-tier">
-        <div class="process-tier-num">03</div>
+        <div class="process-tier-num">3</div>
         <div class="process-tier-body">
-          <div class="process-tier-subtitle">Custom Build</div>
-          <div class="process-tier-title">Connect it all</div>
-          <p class="process-tier-desc">For businesses running several disconnected systems, booking, CRM, reporting, that don't talk to each other. We design and build the integrations and automated workflows that bring your whole stack into one connected picture.</p>
-          <div class="process-tier-examples">
-            <div class="process-tier-example">Booking, CRM, and reporting tied together</div>
-            <div class="process-tier-example">Custom AI agents to cut manual tasks</div>
-            <div class="process-tier-example">Ongoing updates as you scale</div>
+          <div class="process-tier-title">Choose how far to take it</div>
+          <p class="process-tier-desc">Run with the recommendation yourself, or pick one of three depths:</p>
+
+          <div class="tier-mini-grid">
+
+            <div class="tier-mini-card">
+              <div class="tier-mini-num">01</div>
+              <div class="tier-mini-subtitle">Guidance</div>
+              <div class="tier-mini-title">Show me what's possible</div>
+              <p class="tier-mini-desc">Understand what tools exist and where to start.</p>
+              <div class="tier-mini-examples">
+                <div class="tier-mini-example">Tools matched to your situation</div>
+                <div class="tier-mini-example">Where your setup is falling short</div>
+                <div class="tier-mini-example">A clear plan to get started</div>
+              </div>
+            </div>
+
+            <div class="tier-mini-card">
+              <div class="tier-mini-num">02</div>
+              <div class="tier-mini-subtitle">Implementation</div>
+              <div class="tier-mini-title">Set it up for me</div>
+              <p class="tier-mini-desc">We build it into what you already use.</p>
+              <div class="tier-mini-examples">
+                <div class="tier-mini-example">Full setup with existing systems</div>
+                <div class="tier-mini-example">Team training and handoff</div>
+                <div class="tier-mini-example">You approve before we launch</div>
+              </div>
+            </div>
+
+            <div class="tier-mini-card">
+              <div class="tier-mini-num">03</div>
+              <div class="tier-mini-subtitle">Custom Build</div>
+              <div class="tier-mini-title">Connect it all</div>
+              <p class="tier-mini-desc">Booking, CRM, and reporting, tied into one system.</p>
+              <div class="tier-mini-examples">
+                <div class="tier-mini-example">Custom AI agents to cut manual tasks</div>
+                <div class="tier-mini-example">Integrations across your full stack</div>
+                <div class="tier-mini-example">Ongoing updates as you scale</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -933,7 +959,7 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
     <div class="section-label" style="justify-content:center;">Schedule</div>
     <h2>Book your free audit call</h2>
     <p>30 minutes. Tell us what is slowing your business down and we will find a solution for it.</p>
-    <p style="font-size: 13px; color: var(--ink3); margin-top: 10px;">Free audits always. Quick fixes inside your existing platform cost little to nothing. Custom-built automation and integrations are scoped and priced individually, you will know the number before anything begins.</p>
+    <p style="font-size: 13px; color: var(--ink3); margin-top: 10px;">Free audits always. Quick fixes cost little to nothing. Custom builds are scoped and priced before we start.</p>
   </div>
   <div class="calendly-wrap">
     <div class="calendly-inline-widget"
