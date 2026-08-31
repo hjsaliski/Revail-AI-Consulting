@@ -128,14 +128,14 @@ nav {
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 24px;
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
 }
-.hero-inner { max-width: 620px; position: relative; z-index: 1; }
+.hero-inner { max-width: 580px; position: relative; z-index: 1; }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -207,9 +207,9 @@ h1 {
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.flow-diagram { width: 100%; max-width: 460px; height: auto; }
+.flow-diagram { width: 100%; max-width: 780px; height: auto; }
 .flow-path {
   fill: none;
   stroke: var(--line);
@@ -609,51 +609,45 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
     </div>
 
     <div class="hero-diagram-wrap">
-      <svg class="flow-diagram" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path class="flow-path" d="M240,65 Q222,153 240,240"/>
-        <path class="flow-path" d="M364,116 Q289,165 240,240"/>
-        <path class="flow-path" d="M415,240 Q327,222 240,240"/>
-        <path class="flow-path" d="M364,364 Q315,289 240,240"/>
-        <path class="flow-path" d="M240,415 Q258,327 240,240"/>
-        <path class="flow-path" d="M116,364 Q191,315 240,240"/>
-        <path class="flow-path" d="M65,240 Q152,258 240,240"/>
-        <path class="flow-path" d="M116,116 Q165,191 240,240"/>
+      <svg class="flow-diagram" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+        </defs>
+
+        <text x="120" y="24" text-anchor="middle" style="font-family:var(--display); font-size:12px; font-weight:600; fill:var(--ink3);">Now</text>
+        <text x="400" y="24" text-anchor="middle" style="font-family:var(--display); font-size:12px; font-weight:600; fill:var(--signal);">After</text>
+
+        <path d="M120,50 L75,210" fill="none" stroke="var(--ink3)" stroke-width="1.5" style="stroke-dasharray:3 4; opacity:0.8;"/>
+        <path d="M55,110 L165,210" fill="none" stroke="var(--ink3)" stroke-width="1.5" style="stroke-dasharray:3 4; opacity:0.8;"/>
+
+        <g class="flow-node"><circle cx="120" cy="50" r="18"/><text x="120" y="51">CRM</text></g>
+        <g class="flow-node"><circle cx="55" cy="110" r="18"/><text x="55" y="111">Fin</text></g>
+        <g class="flow-node"><circle cx="185" cy="110" r="18"/><text x="185" y="111">Ops</text></g>
+        <g class="flow-node"><circle cx="75" cy="210" r="18"/><text x="75" y="211">Docs</text></g>
+        <g class="flow-node"><circle cx="165" cy="210" r="18"/><text x="165" y="211">Sheets</text></g>
+
+        <line x1="215" y1="140" x2="283" y2="140" stroke="var(--signal)" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <path class="flow-path" d="M400,150 L400,65"/>
+        <path class="flow-path" d="M400,150 L480.8,123.7"/>
+        <path class="flow-path" d="M400,150 L450,218.8"/>
+        <path class="flow-path" d="M400,150 L350,218.8"/>
+        <path class="flow-path" d="M400,150 L319.2,123.7"/>
 
         <circle r="3.5" class="flow-pulse">
-          <animateMotion dur="3.1s" begin="0s" repeatCount="indefinite" path="M240,65 Q222,153 240,240"/>
+          <animateMotion dur="3s" begin="0s" repeatCount="indefinite" path="M400,150 L400,65"/>
         </circle>
         <circle r="3.5" class="flow-pulse pulse-blue">
-          <animateMotion dur="3.5s" begin="0.4s" repeatCount="indefinite" path="M364,116 Q289,165 240,240"/>
-        </circle>
-        <circle r="3.5" class="flow-pulse">
-          <animateMotion dur="2.9s" begin="0.8s" repeatCount="indefinite" path="M415,240 Q327,222 240,240"/>
-        </circle>
-        <circle r="3.5" class="flow-pulse">
-          <animateMotion dur="3.3s" begin="1.2s" repeatCount="indefinite" path="M364,364 Q315,289 240,240"/>
-        </circle>
-        <circle r="3.5" class="flow-pulse pulse-blue">
-          <animateMotion dur="3s" begin="1.6s" repeatCount="indefinite" path="M240,415 Q258,327 240,240"/>
-        </circle>
-        <circle r="3.5" class="flow-pulse">
-          <animateMotion dur="3.4s" begin="2s" repeatCount="indefinite" path="M116,364 Q191,315 240,240"/>
-        </circle>
-        <circle r="3.5" class="flow-pulse">
-          <animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite" path="M65,240 Q152,258 240,240"/>
-        </circle>
-        <circle r="3.5" class="flow-pulse">
-          <animateMotion dur="3.6s" begin="2.8s" repeatCount="indefinite" path="M116,116 Q165,191 240,240"/>
+          <animateMotion dur="3.4s" begin="0.6s" repeatCount="indefinite" path="M400,150 L450,218.8"/>
         </circle>
 
-        <g class="flow-node"><circle cx="240" cy="65" r="27"/><text x="240" y="66">CRM</text></g>
-        <g class="flow-node"><circle cx="364" cy="116" r="27"/><text x="364" y="117">Inv</text></g>
-        <g class="flow-node"><circle cx="415" cy="240" r="27"/><text x="415" y="241">Close</text></g>
-        <g class="flow-node"><circle cx="364" cy="364" r="27"/><text x="364" y="365">BI</text></g>
-        <g class="flow-node"><circle cx="240" cy="415" r="27"/><text x="240" y="416">HR</text></g>
-        <g class="flow-node"><circle cx="116" cy="364" r="27"/><text x="116" y="365">Orders</text></g>
-        <g class="flow-node"><circle cx="65" cy="240" r="27"/><text x="65" y="241">Docs</text></g>
-        <g class="flow-node"><circle cx="116" cy="116" r="27"/><text x="116" y="117">Sheets</text></g>
+        <g class="flow-node"><circle cx="400" cy="65" r="20"/><text x="400" y="66">CRM</text></g>
+        <g class="flow-node"><circle cx="480.8" cy="123.7" r="20"/><text x="480.8" y="124.7">Fin</text></g>
+        <g class="flow-node"><circle cx="450" cy="218.8" r="20"/><text x="450" y="219.8">Ops</text></g>
+        <g class="flow-node"><circle cx="350" cy="218.8" r="20"/><text x="350" y="219.8">Docs</text></g>
+        <g class="flow-node"><circle cx="319.2" cy="123.7" r="20"/><text x="319.2" y="124.7">Sheets</text></g>
 
-        <g class="flow-hub"><circle cx="240" cy="240" r="50"/><text x="240" y="242">AI</text></g>
+        <g class="flow-hub"><circle cx="400" cy="150" r="40"/><text x="400" y="152">AI</text></g>
       </svg>
     </div>
   </div>
