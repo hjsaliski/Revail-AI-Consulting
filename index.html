@@ -209,62 +209,7 @@ h1 {
   display: flex;
   justify-content: flex-start;
 }
-.diagram-card {
-  background: #fff;
-  border: 1px solid rgba(15,17,21,0.08);
-  border-radius: 18px;
-  padding: 36px 40px;
-  box-shadow: 0 24px 60px rgba(15,17,21,0.07);
-  width: 100%;
-  max-width: 840px;
-}
-.diagram-row { display: flex; align-items: center; }
-.diagram-col { flex: 1; min-width: 0; }
-.diagram-pill {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 999px;
-  margin-bottom: 16px;
-}
-.diagram-pill-now { background: var(--paper2); color: var(--ink3); }
-.diagram-pill-after { background: rgba(34,193,123,0.12); color: var(--signal); }
-.diagram-mini { width: 100%; height: auto; display: block; }
-.diagram-divider {
-  position: relative;
-  width: 54px;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.diagram-divider::before {
-  content: '';
-  position: absolute;
-  top: 24px;
-  bottom: 24px;
-  left: 50%;
-  width: 1px;
-  background: rgba(15,17,21,0.1);
-}
-.diagram-arrow-badge {
-  position: relative;
-  z-index: 1;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1.5px solid var(--signal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--signal);
-  font-size: 15px;
-  font-weight: 700;
-}
+.diagram-mockup { width: 100%; max-width: 840px; height: auto; display: block; }
 .flow-path {
   fill: none;
   stroke: var(--ink3);
@@ -619,8 +564,8 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-diagram-wrap { order: -1; margin-bottom: 8px; justify-content: center; }
-  .diagram-card { max-width: 460px; padding: 24px 20px; }
+  .hero-diagram-wrap { margin-top: 8px; justify-content: center; }
+  .diagram-mockup { max-width: 600px; }
 }
 
 @media (max-width: 768px) {
@@ -664,52 +609,75 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
     </div>
 
     <div class="hero-diagram-wrap">
-      <div class="diagram-card">
-        <div class="diagram-row">
+      <svg class="diagram-mockup" viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M280,52 Q330,52 375,160" fill="none" stroke="var(--signal)" stroke-width="2"/>
+        <path d="M280,136 Q330,136 375,182" fill="none" stroke="var(--pulse)" stroke-width="2"/>
+        <path d="M280,220 L375,220" fill="none" stroke="var(--signal)" stroke-width="2"/>
+        <path d="M280,304 Q330,304 375,258" fill="none" stroke="var(--pulse)" stroke-width="2"/>
+        <path d="M280,388 Q330,388 375,280" fill="none" stroke="var(--signal)" stroke-width="2"/>
 
-          <div class="diagram-col">
-            <span class="diagram-pill diagram-pill-now">Now</span>
-            <svg class="diagram-mini" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M110,40 L60,170" fill="none" stroke="var(--ink2)" stroke-width="1.5" style="stroke-dasharray:3 4; opacity:0.85;"/>
-              <path d="M40,80 L160,170" fill="none" stroke="var(--ink2)" stroke-width="1.5" style="stroke-dasharray:3 4; opacity:0.85;"/>
-              <g class="flow-node"><circle cx="110" cy="40" r="21"/><text x="110" y="41" style="font-size:10.5px;">CRM</text></g>
-              <g class="flow-node"><circle cx="40" cy="80" r="21"/><text x="40" y="81" style="font-size:10.5px;">Fin</text></g>
-              <g class="flow-node"><circle cx="180" cy="80" r="21"/><text x="180" y="81" style="font-size:10.5px;">Ops</text></g>
-              <g class="flow-node"><circle cx="60" cy="170" r="21"/><text x="60" y="171" style="font-size:10.5px;">Docs</text></g>
-              <g class="flow-node"><circle cx="160" cy="170" r="21"/><text x="160" y="171" style="font-size:10.5px;">Sheets</text></g>
-            </svg>
-          </div>
+        <path d="M525,160 Q575,160 620,52" fill="none" stroke="var(--signal)" stroke-width="2"/>
+        <path d="M525,182 Q575,182 620,136" fill="none" stroke="var(--pulse)" stroke-width="2"/>
+        <path d="M525,220 L620,220" fill="none" stroke="var(--signal)" stroke-width="2"/>
+        <path d="M525,258 Q575,258 620,304" fill="none" stroke="var(--pulse)" stroke-width="2"/>
+        <path d="M525,280 Q575,280 620,388" fill="none" stroke="var(--signal)" stroke-width="2"/>
 
-          <div class="diagram-divider"><span class="diagram-arrow-badge">&#8594;</span></div>
+        <rect x="375" y="180" width="150" height="80" rx="14" fill="var(--ink)" stroke="var(--signal)" stroke-width="2.2"/>
+        <text x="450" y="213" text-anchor="middle" style="font-family:var(--display); font-size:17px; font-weight:700; fill:#fff;">AI layer</text>
+        <text x="450" y="232" text-anchor="middle" style="font-family:var(--display); font-size:8.5px; font-weight:600; fill:var(--signal-lt); letter-spacing:0.02em;">Connect &#183; Understand &#183; Act</text>
 
-          <div class="diagram-col">
-            <span class="diagram-pill diagram-pill-after">After</span>
-            <svg class="diagram-mini" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path class="flow-path" d="M110,110 L110,32"/>
-              <path class="flow-path" d="M110,110 L184.2,85.9"/>
-              <path class="flow-path" d="M110,110 L155.9,173.1"/>
-              <path class="flow-path" d="M110,110 L64.1,173.1"/>
-              <path class="flow-path" d="M110,110 L35.8,85.9"/>
+        <g style="font-family:var(--sans);">
+        <rect x="20" y="20" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="52" cy="52" r="20" fill="var(--signal)"/><text x="52" y="56" text-anchor="middle" style="font-family:var(--display); font-size:11px; font-weight:700; fill:#fff;">CRM</text>
+        <text x="84" y="46" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">CRM</text>
+        <text x="84" y="63" style="font-size:11.5px; fill:var(--ink3);">Customers &amp; deals</text>
 
-              <circle r="3" class="flow-pulse">
-                <animateMotion dur="3s" begin="0s" repeatCount="indefinite" path="M110,110 L110,32"/>
-              </circle>
-              <circle r="3" class="flow-pulse pulse-blue">
-                <animateMotion dur="3.4s" begin="0.6s" repeatCount="indefinite" path="M110,110 L155.9,173.1"/>
-              </circle>
+        <rect x="20" y="104" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="52" cy="136" r="20" fill="var(--pulse)"/><text x="52" y="141" text-anchor="middle" style="font-family:var(--display); font-size:15px; font-weight:700; fill:#fff;">$</text>
+        <text x="84" y="130" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Accounting</text>
+        <text x="84" y="147" style="font-size:11.5px; fill:var(--ink3);">Invoices &amp; payments</text>
 
-              <g class="flow-node"><circle cx="110" cy="32" r="21"/><text x="110" y="33" style="font-size:10.5px;">CRM</text></g>
-              <g class="flow-node"><circle cx="184.2" cy="85.9" r="21"/><text x="184.2" y="86.9" style="font-size:10.5px;">Fin</text></g>
-              <g class="flow-node"><circle cx="155.9" cy="173.1" r="21"/><text x="155.9" y="174.1" style="font-size:10.5px;">Ops</text></g>
-              <g class="flow-node"><circle cx="64.1" cy="173.1" r="21"/><text x="64.1" y="174.1" style="font-size:10.5px;">Docs</text></g>
-              <g class="flow-node"><circle cx="35.8" cy="85.9" r="21"/><text x="35.8" y="86.9" style="font-size:10.5px;">Sheets</text></g>
+        <rect x="20" y="188" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="52" cy="220" r="20" fill="var(--signal)"/><text x="52" y="224" text-anchor="middle" style="font-family:var(--display); font-size:10.5px; font-weight:700; fill:#fff;">Inv</text>
+        <text x="84" y="214" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Inventory</text>
+        <text x="84" y="231" style="font-size:11.5px; fill:var(--ink3);">Stock &amp; orders</text>
 
-              <g class="flow-hub"><circle cx="110" cy="110" r="21"/><text x="110" y="111" style="font-size:10.5px;">AI</text></g>
-            </svg>
-          </div>
+        <rect x="20" y="272" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="52" cy="304" r="20" fill="var(--pulse)"/><text x="52" y="308" text-anchor="middle" style="font-family:var(--display); font-size:10.5px; font-weight:700; fill:#fff;">Rpt</text>
+        <text x="84" y="298" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Reporting</text>
+        <text x="84" y="315" style="font-size:11.5px; fill:var(--ink3);">Data &amp; analytics</text>
 
-        </div>
-      </div>
+        <rect x="20" y="356" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="52" cy="388" r="20" fill="var(--signal)"/><text x="52" y="392" text-anchor="middle" style="font-family:var(--display); font-size:10.5px; font-weight:700; fill:#fff;">Sch</text>
+        <text x="84" y="382" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Scheduling</text>
+        <text x="84" y="399" style="font-size:11.5px; fill:var(--ink3);">Jobs &amp; resources</text>
+
+        <rect x="620" y="20" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="652" cy="52" r="20" fill="var(--signal)"/><text x="652" y="57" text-anchor="middle" style="font-family:var(--display); font-size:16px; font-weight:700; fill:#fff;">&#10003;</text>
+        <text x="684" y="46" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Updated records</text>
+        <text x="684" y="63" style="font-size:11.5px; fill:var(--ink3);">Customers &amp; deals synced</text>
+
+        <rect x="620" y="104" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="652" cy="136" r="20" fill="var(--pulse)"/><text x="652" y="141" text-anchor="middle" style="font-family:var(--display); font-size:16px; font-weight:700; fill:#fff;">&#10003;</text>
+        <text x="684" y="130" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Transactions</text>
+        <text x="684" y="147" style="font-size:11.5px; fill:var(--ink3);">Invoices &amp; payments posted</text>
+
+        <rect x="620" y="188" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="652" cy="220" r="20" fill="var(--signal)"/><text x="652" y="225" text-anchor="middle" style="font-family:var(--display); font-size:16px; font-weight:700; fill:#fff;">&#10003;</text>
+        <text x="684" y="214" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Stock levels</text>
+        <text x="684" y="231" style="font-size:11.5px; fill:var(--ink3);">Inventory kept current</text>
+
+        <rect x="620" y="272" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="652" cy="304" r="20" fill="var(--pulse)"/><text x="652" y="309" text-anchor="middle" style="font-family:var(--display); font-size:16px; font-weight:700; fill:#fff;">&#10003;</text>
+        <text x="684" y="298" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Reports &amp; insights</text>
+        <text x="684" y="315" style="font-size:11.5px; fill:var(--ink3);">Dashboards generated</text>
+
+        <rect x="620" y="356" width="260" height="64" rx="12" fill="#fff" stroke="rgba(15,17,21,0.1)" stroke-width="1.5"/>
+        <circle cx="652" cy="388" r="20" fill="var(--signal)"/><text x="652" y="393" text-anchor="middle" style="font-family:var(--display); font-size:16px; font-weight:700; fill:#fff;">&#10003;</text>
+        <text x="684" y="382" style="font-family:var(--display); font-size:14px; font-weight:700; fill:var(--ink);">Schedule updates</text>
+        <text x="684" y="399" style="font-size:11.5px; fill:var(--ink3);">Bookings kept accurate</text>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
@@ -726,12 +694,12 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
   <div class="capabilities-grid">
 
     <div class="capability-card">
-      <div class="capability-subtitle">Field service and reporting</div>
-      <div class="capability-title">Turn job photos and notes into client-ready reports automatically</div>
+      <div class="capability-subtitle">Inventory and scheduling</div>
+      <div class="capability-title">Keep stock levels and appointments in sync without the back and forth</div>
       <div class="capability-divider"></div>
-      <div class="capability-example">Pull job data and photos from your field service app</div>
-      <div class="capability-example">Draft client reports and follow-up emails with AI</div>
-      <div class="capability-example">Send them without anyone touching a spreadsheet</div>
+      <div class="capability-example">Connect inventory counts across every sales channel</div>
+      <div class="capability-example">Auto-fill open appointment slots and send reminders</div>
+      <div class="capability-example">Flag low stock or double-bookings before they become problems</div>
     </div>
 
     <div class="capability-card">
