@@ -860,5 +860,18 @@ h1            { animation: fadeUp 0.6s 0.1s ease both; }
 })();
 </script>
 
+<!-- Google Ads conversion tracking: fires when a Calendly booking completes -->
+<script>
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.event === 'calendly.event_scheduled') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18464506944/2gk6CMjwpv8cEMCIyORE',
+      'value': 1.0,
+      'currency': 'USD'
+    });
+  }
+});
+</script>
+
 </body>
 </html>
